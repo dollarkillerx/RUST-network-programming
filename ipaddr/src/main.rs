@@ -1,11 +1,13 @@
-# IpAddr & SocketAddr
-
-## IpAddr
-``` 
-use std::net::{IpAddr,Ipv4Addr,Ipv6Addr};
+use std::net::{IpAddr,Ipv4Addr,Ipv6Addr,SocketAddr};
 use std::str::FromStr;
 
 fn main() {
+    ip_addr_test();
+    println!();
+    socket_addr_test();
+}
+
+fn ip_addr_test() {
     let v4 = IpAddr::V4(Ipv4Addr::new(127,0,0,1));
     let v6 = IpAddr::V6(Ipv6Addr::new(0,0,0,0,0,0,0,1));
     let _a = IpAddr::from_str("8.8.8.8");
@@ -19,11 +21,6 @@ fn main() {
     assert_eq!(v6.is_ipv6(),true); // 判断是不是广播地址
 }
 
-```
-
-## SocketAddr
-socketAddr = IpAddr + Port
-``` 
 fn socket_addr_test() {
     // ip + port
     let v4 = SocketAddr::new(IpAddr::V4(Ipv4Addr::new(8, 8, 8, 8)), 8080);
@@ -35,4 +32,3 @@ fn socket_addr_test() {
     println!("v6: {}", v6);
     println!("vv: {}",vv);
 }
-```
