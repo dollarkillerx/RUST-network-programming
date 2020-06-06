@@ -10,4 +10,5 @@ Cargo.lock
 **/*.rs.bk
 .idea
 
-server/target/
+service/target/
+ful/target/
